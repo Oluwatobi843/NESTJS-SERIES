@@ -16,12 +16,12 @@ export class UsersController {
 
   @Get() // GET  /users
   findAll(@Query('role') role?: 'INTERN' | 'ENGINEER' | 'ADMIN') {
-    return [];   
+    return this.usersService.findAll(role);   
   }
 
   @Get(':id') // GET  /users/:id
   findOne(@Param('id') id: string) {
-    return { id };
+    return this.usersService.findOne(+id);
   }
 
   @Post() // POST  /users
@@ -36,6 +36,6 @@ export class UsersController {
 
   @Delete(':id') // DELETE /users/:id
   delete(@Param('id') id: string) {
-    return { id };
+    return this.usersService.delete(+id);
   }
 }
