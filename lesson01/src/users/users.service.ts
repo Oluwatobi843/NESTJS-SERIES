@@ -80,4 +80,12 @@ export class UsersService {
 
      return this.findOne(id);
   }
+
+  delete(id: number) {
+    const removedUser = this.findOne(id)
+
+    this.users = this.users.filter(user => user.id !== id)
+
+    return removedUser;
+  }
 }
